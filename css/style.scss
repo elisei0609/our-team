@@ -1,0 +1,294 @@
+@function get-vw($target) {
+   $vw-context: (1200*.01) * 1px;
+   @return ($target/$vw-context) * 1vw;
+}
+@function get-rem($target) {
+   @return ($target/16) * 1rem;
+}
+@function get-lh($line-height,$font-size) {
+   @return ($line-height/$font-size);
+}
+$main-color: #ffcc00;
+
+$memberPadding: get-rem(76) get-rem(83) get-rem(67);
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap');
+.cls-1 {
+   font-size: 14px;
+   fill: #ccc;
+   text-anchor: middle;
+   font-family: FontAwesome;
+ }
+ .cls-2 {
+   fill: none;
+   stroke: #ccc;
+   stroke-width: 2px;
+ }
+ * {
+    box-sizing: border-box;
+ }
+ body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+ }
+ .container {
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+    padding-top: 3rem;
+    text-align: center;
+ }
+ h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: get-rem(36);
+    color: #666666;
+    font-weight: 900;
+ }
+ h3 {
+   font-family: 'Raleway', sans-serif;
+   color: #666666;
+   font-size: get-rem(24);
+   font-weight: 400;
+ }
+ .section {
+
+   &-title {
+      text-align: center;
+      text-transform: uppercase;
+
+      &__top {
+         font-size: get-rem(18);
+         color: #898f8f;
+         margin-bottom: 0.5rem;
+      }
+      &__bottom {
+         font-size: 3.75rem;
+         color: #ffcc00;
+         font-family: 'Roboto', sans-serif;
+         margin-bottom: 2rem;
+      }
+   }
+      &__small-image {
+         max-width: 100%;
+         position: relative;
+         display: inline-block;
+            &:before {
+               position: absolute;
+               content: '';
+               width: get-rem(213);
+               height: 1px;
+               background-color: #ffcc00;
+               top: 50%;
+               right: 2em;
+            }
+            &:after {
+               position: absolute;
+               content: '';
+               width: get-rem(213);
+               height: 1px;
+               background-color: #ffcc00;
+               top: 50%;
+               left: 2em;
+            }
+      
+   }
+ }
+
+ .team-member {
+    display: flex;
+    padding-top: 2rem;
+    position: relative;
+   .arrow-left {
+      display: inline-block;
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      height: 50px;
+      &:before {
+         content: '';
+         position: absolute;
+         width: 1.1em;
+         height: 4px;
+         background-color: #fc0;
+         top:62%;
+         left: 0;
+         transform: rotate(42deg);
+      }
+      &:after {
+         content: '';
+         position: absolute;
+         width: 1.1em;
+         height: 4px;
+         background-color: #fc0;
+         top:44.5%;
+         left: 0;
+         transform: rotate(144deg);
+      }
+      a {
+         width: 100%;
+         height: 100%;
+         display: inline-block;
+      }
+   }
+   .arrow-right {
+      display: inline-block;
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      height: 50px;
+      right: 0;
+      a {
+         width: 100%;
+         height: 100%;
+         display: inline-block;
+      }
+      &:before {
+         content: '';
+         position: absolute;
+         width: 1.1em;
+         height: 4px;
+         background-color: #fc0;
+         top:62%;
+         right: 0;
+         transform: rotate(-42deg);
+      }
+      &:after {
+         content: '';
+         position: absolute;
+         width: 1.1em;
+         height: 4px;
+         background-color: #fc0;
+         top:44.5%;
+         right: 0;
+         transform: rotate(-144deg);
+      }
+   }
+    
+    &__photo {
+       padding: 4.75rem 4.64rem 4.1875rem;
+       border-right:1px solid $main-color;
+    }
+    &__border {
+       padding: get-rem(15);
+       border: 1px solid $main-color;
+       position: relative;
+         &:after, &:before {
+            content: '';
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            z-index: 5;
+            left: -2px;
+            transform: translateY(-50%);
+            width: calc(100% + 4px);
+            height: 50%;
+         }
+         &:after {
+            transform: rotate(90deg);
+            top: 25%;
+            
+         }
+    }
+    &__img {
+       display: block;
+       border: 1px solid $main-color;
+       max-width: 100%;
+       height: auto;
+       object-fit: cover;
+       position: relative;
+       z-index: 10;
+    }
+      &__info {
+         padding-top: 6.75rem;
+         margin-left: 5%;
+         width: 37%;
+         text-align: center;
+      }
+
+      //style for use
+
+      &__name {
+         margin-bottom: get-rem(65);
+         position: relative;
+          &:after {
+            position: absolute;
+            content: '';
+            width: 23.7%;
+            height: 1px;
+            background-color: #fc0;
+            top: 2em;
+            right: 38%;
+          }
+      }
+      &__position {
+         margin-bottom: get-rem(30);
+      }
+      .strip {
+         display: block;
+         margin-top: get-rem(10);
+         margin-bottom: get-rem(25);
+      }
+      &__desc {
+         font-size: get-rem(14);
+         font-weight: 500;
+         color: #000;
+         line-height: get-lh(24,14);
+      }
+      
+      
+ }
+ .social {
+    
+   &__list {
+      display: flex;
+      justify-content: center;
+      margin-bottom: get-rem(30);
+   }
+
+   &__item {
+
+   }
+
+   &__link {
+
+   }
+ }
+ .button {
+   font-family: 'Open Sans';
+   font-size: get-rem(14);
+   text-decoration: none;
+   color: #666666;
+   text-transform: uppercase;
+   font-weight: bold;
+   border: 1px solid #fc0;
+   padding: 5px 12px;
+ }
+ .visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden;
+}
+.breadcrumbs {
+   display: flex;
+   width: get-rem(55);
+   margin: get-rem(40) auto;
+   height: auto;
+   justify-content: space-between;
+      &__item {
+         width: get-rem(10);
+         height: get-rem(10);
+         background-color: #fc0;
+         border-radius: 50%;
+         &_inherit {
+            background-color: inherit;
+            border: 2px solid #fc0;
+         }
+      }
+}
